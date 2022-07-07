@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        xmlns:c="http://jmix.io/schema/ui/jpql-condition"
+        caption="msg://operationBrowse.caption"
+        focusComponent="operationsTable">
+    <data readOnly="true">
+        <collection id="operationsDc"
+                    class="com.company.jmixbanking.entity.Operation">
+            <fetchPlan extends="_base">
+                <property name="account" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="operationsDl">
+                <query>
+                    <![CDATA[select e from Operation e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+        <screenSettings id="settingsFacet" auto="true"/>
+    </facets>
+    <actions>
+        <action id="lookupSelectAction"
+                caption="msg:///actions.Select"
+                icon="LOOKUP_OK"
+                primary="true"
+                shortcut="${COMMIT_SHORTCUT}"/>
+        <action id="lookupCancelAction"
+                caption="msg:///actions.Cancel"
+                icon="LOOKUP_CANCEL"/>
+    </actions>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="operationsTable" spacing="true">
+        <filter id="filter"
+                dataLoader="operationsDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="operationsTable"
+                    width="100%"
+                    dataContainer="operationsDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+            </actions>
+            <columns>
+                <column id="amount"/>
+                <column id="type"/>
+                <column id="date"/>
+                <column id="category"/>
+                <column id="comment"/>
+                <column id="account"/>
+            </columns>
+            <simplePagination/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="operationsTable.create"/>
+                <button id="editBtn" action="operationsTable.edit"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>
