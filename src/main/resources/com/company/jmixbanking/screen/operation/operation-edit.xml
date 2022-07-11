@@ -5,7 +5,9 @@
     <data>
         <instance id="operationDc"
                   class="com.company.jmixbanking.entity.Operation">
-            <fetchPlan extends="_base"/>
+            <fetchPlan extends="_base">
+                <property name="account" fetchPlan="_base"/>
+            </fetchPlan>
             <loader/>
         </instance>
     </data>
@@ -28,12 +30,20 @@
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="operationDc">
                 <column width="350px">
-                    <textField id="amountField" property="amount"/>
-                    <comboBox id="typeField" property="type"/>
-                    <dateField id="dateField" property="date"/>
+                    <entityComboBox id="accountField" property="account" required="true">
+                    <actions>
+                        <action id="entityLookup" type="entity_lookup"/>
+                        <action id="entityClear" type="entity_clear"/>
+                    </actions>
+                    </entityComboBox>
+                    <textField id="amountField" property="amount" required="true"
+                               requiredMessage="msg://textField.requiredMessage" responsive="true"/>
+                    <comboBox id="typeField" property="type"
+                              optionsEnum="com.company.jmixbanking.entity.OperationType" nullOptionVisible="false"
+                              required="true" requiredMessage="msg://comboBox.requiredMessage"/>
+                    <dateField id="dateField" property="date" required="true"/>
                     <comboBox id="categoryField" property="category"/>
-                    <textField id="commentField" property="comment"/>
-                    <comboBox id="accountField" property="account"/>
+                    <textArea id="commentField" property="comment"/>
                 </column>
             </form>
         </scrollBox>

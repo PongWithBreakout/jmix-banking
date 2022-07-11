@@ -43,6 +43,7 @@
             <actions>
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
+                <action id="cancel" type="create"/>
             </actions>
             <columns>
                 <column id="amount"/>
@@ -57,6 +58,9 @@
                           alwaysVisible="true">
                 <button id="createBtn" action="operationsTable.create"/>
                 <button id="editBtn" action="operationsTable.edit"/>
+                <button id="cancelBtn" action="operationsTable.cancel" caption="msg://cancelBtn.caption"
+                        icon="REMOVE_ACTION"/>
+
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">

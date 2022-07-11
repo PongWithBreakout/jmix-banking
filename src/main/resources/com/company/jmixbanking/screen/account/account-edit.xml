@@ -28,8 +28,8 @@
         <form id="form" dataContainer="accountDc">
             <column width="350px">
                 <textField id="nameField" property="name"/>
-                <comboBox id="currencyField" property="currency"/>
-                <textField id="fundsField" property="funds"/>
+                <comboBox id="currencyField" property="currency"
+                          optionsEnum="com.company.jmixbanking.entity.AccountCurrency"/>
             </column>
         </form>
         <hbox id="editActions" spacing="true">

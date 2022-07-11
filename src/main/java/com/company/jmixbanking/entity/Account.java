@@ -5,11 +5,7 @@ import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
 import io.jmix.core.entity.annotation.OnDelete;
-import io.jmix.core.entity.annotation.OnDeleteInverse;
-import io.jmix.core.metamodel.annotation.Composition;
-import io.jmix.core.metamodel.annotation.InstanceName;
-import io.jmix.core.metamodel.annotation.JmixEntity;
-import io.jmix.core.metamodel.annotation.NumberFormat;
+import io.jmix.core.metamodel.annotation.*;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -32,7 +28,6 @@ public class Account {
     private UUID id;
 
     @NotNull
-    @InstanceName
     @Column(name = "NAME", nullable = false, length = 200)
     private String name;
 
@@ -45,7 +40,6 @@ public class Account {
     @NotNull
     private BigDecimal funds;
 
-    @OnDeleteInverse(DeletePolicy.DENY)
     @OnDelete(DeletePolicy.CASCADE)
     @Composition
     @OneToMany(mappedBy = "account")
@@ -81,6 +75,10 @@ public class Account {
     @Column(name = "VERSION", nullable = false)
     @Version
     private Integer version;
+
+    public void setCurrency(AccountCurrency currency) {
+        this.currency = currency == null ? null : currency.getId();
+    }
 
     public void setName(String name) {
         this.name = name;
@@ -172,5 +170,11 @@ public class Account {
 
     public void setId(UUID id) {
         this.id = id;
+    }
+
+    @InstanceName
+    @DependsOnProperties({"name", "currency"})
+    public String getInstanceName() {
+        return String.format("%s [%s]", name, currency);
     }
 }

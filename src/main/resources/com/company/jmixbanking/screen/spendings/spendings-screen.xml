@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://jmix.io/schema/ui/window"
+        caption="msg://spendingsScreen.caption" xmlns:chart="http://jmix.io/schema/ui/charts">
+    <data readOnly="true">
+        <collection id="operationsDc"
+                    class="com.company.jmixbanking.entity.Operation">
+            <fetchPlan extends="_base">
+                <property name="account" fetchPlan="_base"/>
+            </fetchPlan>
+            <loader id="operationsDl">
+                <query>
+                    <![CDATA[select e from Operation e]]>
+                </query>
+            </loader>
+        </collection>
+        <keyValueCollection id="spendingsDc"/>
+    </data>
+    <layout spacing="true">
+        <scrollBox orientation="vertical" height="auto"
+ scrollBars="vertical" spacing="true">
+            <dateField id="fromDate"/>
+            <dateField id="toDate"/>
+            <entityComboBox id="entityComboBox" property="account"/>
+            <button id="countSpendings"></button>
+        </scrollBox>
+        <table id="spendingTable" height="auto" width="100%" reorderingAllowed="false" dataContainer="spendingsDc">
+            <columns>
+                <column id="category"></column>
+                <column id="amount"></column>
+            </columns>
+        </table>
+    </layout>
+</window>
