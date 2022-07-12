@@ -35,12 +35,12 @@
             <column name="DATE_" value="2022-07-12T19:53:14.95"/>
             <column name="AMOUNT" value="50000.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:53:42.243"/>
-            <column name="TYPE_" value="OPERATION_DEPOSIT"/>
+            <column name="TYPE_" value="10"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:53:42.243"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value="Начисление"/>
-            <column name="CATEGORY" value="OTHER"/>
+            <column name="CATEGORY" value="10"/>
             <column name="ACCOUNT_ID" value="b2fea0de-1f67-3abe-732b-35585ed5f93a"/>
         </insert>
         <insert tableName="OPERATION">
@@ -48,12 +48,12 @@
             <column name="DATE_" value="2022-07-12T19:53:54.052"/>
             <column name="AMOUNT" value="3000.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:54:24.895"/>
-            <column name="TYPE_" value="OPERATION_DEPOSIT"/>
+            <column name="TYPE_" value="10"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:54:24.895"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value="From foreing bank"/>
-            <column name="CATEGORY" value="OTHER"/>
+            <column name="CATEGORY" value="10"/>
             <column name="ACCOUNT_ID" value="39a52285-30bb-3856-14a8-39f3ab0d35ee"/>
         </insert>
         <insert tableName="OPERATION">
@@ -61,12 +61,12 @@
             <column name="DATE_" value="2022-07-12T19:54:41.834"/>
             <column name="AMOUNT" value="400.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:55:09.825"/>
-            <column name="TYPE_" value="OPERATION_WITHDRAW"/>
+            <column name="TYPE_" value="20"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:55:09.825"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value="На лекарства"/>
-            <column name="CATEGORY" value="FARMACY"/>
+            <column name="CATEGORY" value="20"/>
             <column name="ACCOUNT_ID" value="39a52285-30bb-3856-14a8-39f3ab0d35ee"/>
         </insert>
         <insert tableName="OPERATION">
@@ -74,12 +74,12 @@
             <column name="DATE_" value="2022-07-12T19:55:20.261"/>
             <column name="AMOUNT" value="1500.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:55:38.253"/>
-            <column name="TYPE_" value="OPERATION_WITHDRAW"/>
+            <column name="TYPE_" value="20"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:55:38.253"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value=""/>
-            <column name="CATEGORY" value="GAS"/>
+            <column name="CATEGORY" value="30"/>
             <column name="ACCOUNT_ID" value="b2fea0de-1f67-3abe-732b-35585ed5f93a"/>
         </insert>
         <insert tableName="OPERATION">
@@ -87,12 +87,12 @@
             <column name="DATE_" value="2022-07-12T19:55:52.003"/>
             <column name="AMOUNT" value="1000.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:56:10.356"/>
-            <column name="TYPE_" value="OPERATION_DEPOSIT"/>
+            <column name="TYPE_" value="10"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:56:10.356"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value=""/>
-            <column name="CATEGORY" value="OTHER"/>
+            <column name="CATEGORY" value="10"/>
             <column name="ACCOUNT_ID" value="39a52285-30bb-3856-14a8-39f3ab0d35ee"/>
         </insert>
         <insert tableName="OPERATION">
@@ -100,12 +100,12 @@
             <column name="DATE_" value="2022-07-12T19:56:20.835"/>
             <column name="AMOUNT" value="1000.00"/>
             <column name="LAST_MODIFIED_DATE" value="2022-07-12T19:56:24.131"/>
-            <column name="TYPE_" value="OPERATION_WITHDRAW"/>
+            <column name="TYPE_" value="20"/>
             <column name="VERSION" value="1"/>
             <column name="CREATED_DATE" value="2022-07-12T19:56:24.131"/>
             <column name="CREATED_BY" value="admin"/>
             <column name="COMMENT_" value="Отмена операции от 12.07.2022, 19:55"/>
-            <column name="CATEGORY" value="OTHER"/>
+            <column name="CATEGORY" value="10"/>
             <column name="ACCOUNT_ID" value="39a52285-30bb-3856-14a8-39f3ab0d35ee"/>
         </insert>
 
