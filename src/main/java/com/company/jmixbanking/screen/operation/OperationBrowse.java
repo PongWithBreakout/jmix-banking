@@ -50,7 +50,7 @@ public class OperationBrowse extends StandardLookup<Operation> {
             operation.setAccount(selectedOperation.getAccount());
             operation.setAmount(selectedOperation.getAmount());
 
-            operation.setComment(String.format("%s%s", messages.getMessage("cancelComment"),
+            operation.setComment(String.format("%s %s", messages.getMessage("cancelComment"),
                     DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.SHORT).format(selectedOperation.getDate())));
             operation.setCategory(selectedOperation.getCategory());
             if (selectedOperation.getType() == OperationType.OPERATION_DEPOSIT)
