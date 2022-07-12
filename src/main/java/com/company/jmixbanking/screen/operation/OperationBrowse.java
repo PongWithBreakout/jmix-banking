@@ -2,22 +2,15 @@ package com.company.jmixbanking.screen.operation;
 
 import com.company.jmixbanking.entity.OperationType;
 import io.jmix.core.Messages;
-import io.jmix.core.common.util.ParamsMap;
 import io.jmix.ui.Notifications;
-import io.jmix.ui.Screens;
 import io.jmix.ui.action.list.CreateAction;
-import io.jmix.ui.component.Button;
 import io.jmix.ui.component.GroupTable;
 import io.jmix.ui.screen.*;
 import com.company.jmixbanking.entity.Operation;
-import org.eclipse.persistence.jpa.jpql.parser.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.inject.Named;
 import java.text.DateFormat;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.TemporalAccessor;
-import java.util.Date;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -25,8 +18,6 @@ import java.util.UUID;
 @UiDescriptor("operation-browse.xml")
 @LookupComponent("operationsTable")
 public class OperationBrowse extends StandardLookup<Operation> {
-    @Autowired
-    private Screens screens;
     @Autowired
     private GroupTable<Operation> operationsTable;
     @Autowired

@@ -7,11 +7,9 @@ import io.jmix.ui.component.ComboBox;
 import io.jmix.ui.component.DateField;
 import io.jmix.ui.component.EntityComboBox;
 import io.jmix.ui.component.TextField;
-import io.jmix.ui.model.DataContext;
 import io.jmix.ui.screen.*;
 import com.company.jmixbanking.entity.Operation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.env.ConfigTreePropertySource;
 
 import java.math.BigDecimal;
 import java.time.Instant;
