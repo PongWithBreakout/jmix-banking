@@ -1,5 +1,6 @@
 package com.company.jmixbanking.screen.account;
 
+import io.jmix.core.common.util.ParamsMap;
 import io.jmix.ui.Dialogs;
 import io.jmix.ui.component.Button;
 import io.jmix.ui.screen.*;
@@ -10,10 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 @UiDescriptor("account-browse.xml")
 @LookupComponent("accountsTable")
 public class AccountBrowse extends StandardLookup<Account> {
-    @Autowired
-    private Dialogs dialogs;
-    @Autowired
-    private MessageBundle messageBundle;
-
+    @Install(to = "accountsTable.create", subject = "screenConfigurer")
+    private void accountsTableCreateScreenConfigurer(Screen screen) {
+        ((AccountEdit)screen).setAccountCreation(true);
+    }
 
 }

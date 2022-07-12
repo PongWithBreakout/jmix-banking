@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -23,14 +24,15 @@ public class SpendingService {
     private DataManager dataManager;
 
     public List<KeyValueEntity> getSpendingsByCategory( // Parameters
-                                                        DateTime fromDate, DateTime toDate) {
+                                                        Account account, Date fromDate, Date toDate) {
         return dataManager.loadValues("select o.category, sum(o.amount) " +
                 "from Operation o " +
-                "where o.type = :type " +
-                                "and o.date between :from and :to"
+                "where o.type = :type and o.account = :account " +
+                                "and o.date between :from and :to group by o.category"
                 )
                 .properties("category", "amount")
                 .parameter("type", OperationType.OPERATION_WITHDRAW)
+                .parameter("account", account)
                 .parameter("from", fromDate)
                 .parameter("to", toDate).list();
     }
@@ -38,7 +40,7 @@ public class SpendingService {
     public List<KeyValueEntity> getSpendingsByCategory() {
         return dataManager.loadValues("select o.category, sum(o.amount) " +
                         "from Operation o " +
-                        "where o.type = :type"
+                        "where o.type = :type group by o.category"
                 )
                 .properties("category", "amount")
                 .parameter("type", OperationType.OPERATION_WITHDRAW).list();

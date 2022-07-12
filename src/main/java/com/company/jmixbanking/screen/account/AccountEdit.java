@@ -9,9 +9,18 @@ import java.math.BigDecimal;
 @UiDescriptor("account-edit.xml")
 @EditedEntityContainer("accountDc")
 public class AccountEdit extends StandardEditor<Account> {
-    @Subscribe
-    public void onInitEntity(InitEntityEvent<Account> event) {
+    private boolean accountCreation;
+    {
+        accountCreation = false;
+    }
+    public void setAccountCreation(boolean value) {
+        accountCreation = value;
+    }
 
+    @Subscribe
+    public void onBeforeCommitChanges(BeforeCommitChangesEvent event) {
+        if (accountCreation)
+            this.getEditedEntity().setFunds(BigDecimal.ZERO);
     }
 
 }

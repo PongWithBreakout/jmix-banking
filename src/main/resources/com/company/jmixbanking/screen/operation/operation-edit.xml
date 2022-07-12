@@ -6,10 +6,18 @@
         <instance id="operationDc"
                   class="com.company.jmixbanking.entity.Operation">
             <fetchPlan extends="_base">
-                <property name="account" fetchPlan="_base"/>
+                <property name="account" fetchPlan="_instance_name"/>
             </fetchPlan>
             <loader/>
         </instance>
+        <collection id="accountsDc" class="com.company.jmixbanking.entity.Account">
+            <fetchPlan extends="_base"/>
+            <loader id="accountsDl">
+                <query>
+                    <![CDATA[select e from Account e]]>
+                </query>
+            </loader>
+        </collection>
     </data>
     <facets>
         <dataLoadCoordinator auto="true"/>
@@ -30,7 +38,7 @@
         <scrollBox id="scrollBox" spacing="true">
             <form id="form" dataContainer="operationDc">
                 <column width="350px">
-                    <entityComboBox id="accountField" property="account" required="true">
+                    <entityComboBox id="accountField" property="account" required="true" optionsContainer="accountsDc">
                     <actions>
                         <action id="entityLookup" type="entity_lookup"/>
                         <action id="entityClear" type="entity_clear"/>

@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <window xmlns="http://jmix.io/schema/ui/window"
         caption="msg://spendingsScreen.caption" xmlns:chart="http://jmix.io/schema/ui/charts">
-    <data readOnly="true">
-        <collection id="operationsDc"
-                    class="com.company.jmixbanking.entity.Operation">
-            <fetchPlan extends="_base">
-                <property name="account" fetchPlan="_base"/>
-            </fetchPlan>
-            <loader id="operationsDl">
+    <data>
+        <keyValueCollection id="spendingsDc">
+            <properties>
+                <property name="category" class="com.company.jmixbanking.entity.OperationCategory" datatype="enum"></property>
+                <property name="amount" datatype="decimal"></property>
+            </properties>
+        </keyValueCollection>
+        <collection id="accountsDc" class="com.company.jmixbanking.entity.Account" fetchPlan="_instance_name">
+            <loader id="accountsDl">
                 <query>
-                    <![CDATA[select e from Operation e]]>
+                    <![CDATA[select a from Account a  ]]>
                 </query>
             </loader>
         </collection>
-        <keyValueCollection id="spendingsDc"/>
     </data>
+    <facets>
+        <dataLoadCoordinator auto="true"/>
+    </facets>
     <layout spacing="true">
         <scrollBox orientation="vertical" height="auto"
  scrollBars="vertical" spacing="true">
-            <dateField id="fromDate"/>
-            <dateField id="toDate"/>
-            <entityComboBox id="entityComboBox" property="account"/>
-            <button id="countSpendings"></button>
+            <dateField id="fromDate" required="true" caption="msg://fromDate.caption" datatype="dateTime"/>
+            <dateField id="toDate" required="true" caption="msg://toDate.caption" datatype="dateTime"/>
+            <entityComboBox id="accountChooser" caption="msg://accountChooser.caption"
+                            nullOptionVisible="false" required="true" optionsContainer="accountsDc"/>
+            <button id="countSpendings" caption="msg://countSpendings.caption"></button>
         </scrollBox>
         <table id="spendingTable" height="auto" width="100%" reorderingAllowed="false" dataContainer="spendingsDc">
             <columns>
-                <column id="category"></column>
-                <column id="amount"></column>
+                <column id="category" caption="msg://category.caption"></column>
+                <column id="amount" caption="msg://amount.caption"></column>
             </columns>
         </table>
     </layout>
