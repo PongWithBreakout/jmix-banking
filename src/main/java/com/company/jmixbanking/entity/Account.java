@@ -40,8 +40,8 @@ public class Account {
     @NotNull
     private BigDecimal funds;
 
-    @OnDelete(DeletePolicy.CASCADE)
     @Composition
+    @OnDelete(DeletePolicy.CASCADE)
     @OneToMany(mappedBy = "account")
     private List<Operation> operations;
 

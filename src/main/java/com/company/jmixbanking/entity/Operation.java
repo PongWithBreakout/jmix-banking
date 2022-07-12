@@ -1,11 +1,8 @@
 package com.company.jmixbanking.entity;
 
-import io.jmix.core.DeletePolicy;
 import io.jmix.core.annotation.DeletedBy;
 import io.jmix.core.annotation.DeletedDate;
 import io.jmix.core.entity.annotation.JmixGeneratedValue;
-import io.jmix.core.entity.annotation.OnDelete;
-import io.jmix.core.entity.annotation.OnDeleteInverse;
 import io.jmix.core.metamodel.annotation.DependsOnProperties;
 import io.jmix.core.metamodel.annotation.InstanceName;
 import io.jmix.core.metamodel.annotation.JmixEntity;
@@ -87,8 +84,6 @@ public class Operation {
     @Temporal(TemporalType.TIMESTAMP)
     private Date deletedDate;
 
-    @OnDelete(DeletePolicy.DENY)
-    @OnDeleteInverse(DeletePolicy.CASCADE)
     @JoinColumn(name = "ACCOUNT_ID", nullable = false)
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Account account;

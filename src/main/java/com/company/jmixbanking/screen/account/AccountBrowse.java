@@ -1,11 +1,7 @@
 package com.company.jmixbanking.screen.account;
 
-import io.jmix.core.common.util.ParamsMap;
-import io.jmix.ui.Dialogs;
-import io.jmix.ui.component.Button;
-import io.jmix.ui.screen.*;
 import com.company.jmixbanking.entity.Account;
-import org.springframework.beans.factory.annotation.Autowired;
+import io.jmix.ui.screen.*;
 
 @UiController("Account.browse")
 @UiDescriptor("account-browse.xml")
